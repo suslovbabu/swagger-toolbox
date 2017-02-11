@@ -77,6 +77,9 @@ function buildSwaggerJSON(data) {
                     op.properties[x] = buildSwaggerJSON((data[x]));
                     op.properties[x].type = "object";
                     break;
+                case "null":
+                    op.properties[x] = { "type": "unknown" };
+                    break;
                 default:
                     console.warn("skipping ", typeData);
                     break;
